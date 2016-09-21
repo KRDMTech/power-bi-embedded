@@ -94,7 +94,8 @@
                                         <p>emily_hart@email.com</p>
                                         <div class="btn-group margin-bottom-2x" role="group">
                                             <button type="button" class="btn btn-default"><i class="fa fa-user"></i> Profile</button>
-                                            <button type="button" class="btn btn-default"><i class="fa fa-sign-out"></i> Logout</button>
+                                            <button type="button" class="btn btn-default" onclick="window.location.href = '/Login/Logout';"><i class="fa fa-sign-out"></i> Logout</button>
+                                            <!--<button type="button" class="btn btn-default" onclick="window.location.href = 'https://login.windows.net/common/oauth2/logout?post_logout_redirect_uri=http://neudesicpowerbidemo.azurewebsites.net/Login/Logout'"><i class="fa fa-sign-out"></i> Logout and Reset</button>-->
                                         </div>
                                     </div>
                                 </li>
@@ -124,7 +125,15 @@
                                     <span class="icon fa fa-home"></span><span class="title">Home</span>
                                 </a>
                             </li>
-                            @Html.Action("Reports", "Dashboard")
+                            @Html.Action("Reports", "Report")
+                            @{
+                                className = Request.Path == "/Dashboard" && Request.QueryString.Count == 0 ? "active" : "";
+                            }
+                            <li class="@className">
+                                <a href="/Dashboards">
+                                    <span class="icon fa fa-sign-in"></span><span class="title">Dashboards</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->

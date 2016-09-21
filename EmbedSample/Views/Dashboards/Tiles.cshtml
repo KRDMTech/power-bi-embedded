@@ -1,0 +1,40 @@
+﻿@model TilesViewModel
+
+@section Breadcrumbs {
+    <ol class="breadcrumb navbar-breadcrumb">
+        <li>Dashboards</li>
+        <li>@Model.DashboardName</li>
+        <li class="active">Tiles</li>
+    </ol>
+}
+<div class="side-body padding-top">
+    <div class="col-md-12">
+        @foreach (var tile in Model.Tiles)
+        {
+            <div class="col-md-6 tile">
+                <iframe id="iFrameEmbedTile-@tile.id" src="@tile.embedUrl" onload="postActionLoadTile('@tile.id')"></iframe>
+            </div>
+        }
+    </div>
+</div>
+
+@section PageScripts {
+    <script>
+        // Post the access token to the IFrame
+        function postActionLoadTile(tileId) {
+
+            // Construct the push message structure
+            // This is where you assign the Access Token to get access to the tile visual
+            var messageStructure = {
+                action: "loadTile",
+                accessToken: "@Model.AccessToken",
+                height: 300,
+                width: 500
+            };
+            message = JSON.stringify(messageStructure);
+
+            // Push the message
+            document.getElementById('iFrameEmbedTile-' + tileId).contentWindow.postMessage(message, "*");;
+        }
+    </script>
+}

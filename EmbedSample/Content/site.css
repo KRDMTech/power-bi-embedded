@@ -1,3 +1,17 @@
 ﻿[powerbi-type="report"] iframe {
     border: 1px solid #ccc;
 }
+.tile {
+    margin-bottom: 30px;
+}
+.tile iframe {
+    border: 1px solid #ccc;
+    height: 320px;
+    width: 550px;
+}
+.dashboard {
+    text-align: center;
+}
+.dashboard>div {
+    margin-bottom: 10px;
+}

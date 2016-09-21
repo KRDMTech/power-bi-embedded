@@ -1,0 +1,15 @@
+﻿@model LoginPageViewModel
+
+@section Breadcrumbs {
+    <ol class="breadcrumb navbar-breadcrumb">
+        <li class="active">Login</li>
+    </ol>
+}
+<div class="side-body padding-top">
+    <div class="col-md-12">
+        @using (Html.BeginForm("GetAuthorizationCode", "Login"))
+        {
+            <input type="submit" value="Login" class="btn btn-danger" />
+        }  
+    </div>
+</div>

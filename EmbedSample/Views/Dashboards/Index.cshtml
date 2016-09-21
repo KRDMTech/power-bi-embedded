@@ -1,0 +1,20 @@
+﻿@model DashboardsViewModel
+
+@section Breadcrumbs {
+    <ol class="breadcrumb navbar-breadcrumb">
+        <li class="active">Dashboards</li>
+    </ol>
+}
+<div class="side-body padding-top">
+    <div class="col-md-12">
+        @foreach (var dashboard in Model.Dashboards)
+        {
+            <a href="@Url.Action("Tiles", "Dashboards", new { dashboardId = dashboard.id, dashboardName = dashboard.displayName })">
+                <div class="col-md-2 dashboard">
+                    <div><span class="fa fa-line-chart fa-5x"></span></div>
+                    <p><span>@dashboard.displayName</span></p>
+                </div>
+            </a>
+        }
+    </div>
+</div>

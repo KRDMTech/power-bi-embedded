@@ -6,6 +6,17 @@
 
 <div class="side-body padding-top">
     @Html.PowerBIAccessToken()
+    @{
+        var userName = "Please Login";
+        var email = "";
+        var picture = "batman.jpg";
+        if (Session["User"] != null)
+        {
+            userName = Session["User"].ToString();
+            email = Session["Email"].ToString();
+            picture = Session["Role"].ToString() + ".jpg";
+        }
+    }
     <div class="row">
         <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
             <a href="#">
@@ -28,7 +39,7 @@
                         <i class="icon fa fa-comments fa-4x"></i>
                         <div class="content">
                             <div class="title">23</div>
-                            <div class="sub-title">New Message</div>
+                            <div class="sub-title">New Messages</div>
                         </div>
                         <div class="clear-both"></div>
                     </div>
@@ -42,7 +53,7 @@
                         <i class="icon fa fa-tags fa-4x"></i>
                         <div class="content">
                             <div class="title">280</div>
-                            <div class="sub-title">Product View</div>
+                            <div class="sub-title">Assets</div>
                         </div>
                         <div class="clear-both"></div>
                     </div>
@@ -56,7 +67,7 @@
                         <i class="icon fa fa-share-alt fa-4x"></i>
                         <div class="content">
                             <div class="title">16</div>
-                            <div class="sub-title">Share</div>
+                            <div class="sub-title">Shares</div>
                         </div>
                         <div class="clear-both"></div>
                     </div>
@@ -75,21 +86,19 @@
             <div class="row">
                 <div class="col-md-6 col-sm-12">
                     <div class="thumbnail no-margin-bottom">
-                        <img src="../img/thumbnails/picjumbo.com_IMG_4566.jpg" class="img-responsive">
+                        <img src="../img/thumbnails/healthcare-providers-smiling.jpg" class="img-responsive">
                         <div class="caption">
-                            <h3 id="thumbnail-label">Thumbnail label<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                            <h3 id="thumbnail-label">Ask The Expert - Get Your Health Questions Answered Each Month<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                            <p>Tune into Ask The Expert every 2nd Tuesday of the month on KUTV.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="thumbnail no-margin-bottom">
-                        <img src="../img/thumbnails/picjumbo.com_IMG_3241.jpg" class="img-responsive">
+                        <img src="../img/thumbnails/blog-network.jpg" class="img-responsive">
                         <div class="caption">
-                            <h3 id="thumbnail-label">Thumbnail label<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a href="#" class="btn btn-success" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                            <h3 id="thumbnail-label">The Intermountain Blog - Helping People Live The Healthiest Lives Possible<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                            <p>Intermountain publishes innovative healthcare ideas in our blog network that share our efforts to transform healthcare through high quality and sustainable costs.</p>
                         </div>
                     </div>
                 </div>
@@ -109,7 +118,7 @@
             <div class="card card-success">
                 <div class="card-header">
                     <div class="card-title">
-                        <div class="title"><i class="fa fa-comments-o"></i> Last Message</div>
+                        <div class="title"><i class="fa fa-comments-o"></i> Recent Messages</div>
                     </div>
                     <div class="clear-both"></div>
                 </div>
@@ -117,45 +126,45 @@
                     <ul class="message-list">
                         <a href="#">
                             <li>
-                                <img src="../img/profile/profile-1.jpg" class="profile-img pull-left">
+                                <img src="../img/profile/Carl.jpg" class="profile-img pull-left">
                                 <div class="message-block">
                                     <div>
-                                        <span class="username">Tui2Tone</span> <span class="message-datetime">12 min ago</span>
+                                        <span class="username">Carl McDonald</span> <span class="message-datetime">12 min ago</span>
                                     </div>
-                                    <div class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.</div>
+                                    <div class="message">They are awesome!</div>
                                 </div>
                             </li>
                         </a>
                         <a href="#">
                             <li>
-                                <img src="../img/profile/profile-1.jpg" class="profile-img pull-left">
+                                <img src="../img/profile/Dale.jpg" class="profile-img pull-left">
                                 <div class="message-block">
                                     <div>
-                                        <span class="username">Tui2Tone</span> <span class="message-datetime">15 min ago</span>
+                                        <span class="username">Dale Forbes</span> <span class="message-datetime">15 min ago</span>
                                     </div>
-                                    <div class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.</div>
+                                    <div class="message">What do you think about those dashboards?</div>
                                 </div>
                             </li>
                         </a>
                         <a href="#">
                             <li>
-                                <img src="../img/profile/profile-1.jpg" class="profile-img pull-left">
+                                <img src="../img/profile/Dale.jpg" class="profile-img pull-left">
                                 <div class="message-block">
                                     <div>
-                                        <span class="username">Tui2Tone</span> <span class="message-datetime">2 hour ago</span>
+                                        <span class="username">Dale Forbes</span> <span class="message-datetime">2 hour ago</span>
                                     </div>
-                                    <div class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.</div>
+                                    <div class="message">Take a look at the awesome new dashboards to get your answer.</div>
                                 </div>
                             </li>
                         </a>
                         <a href="#">
                             <li>
-                                <img src="../img/profile/profile-1.jpg" class="profile-img pull-left">
+                                <img src="../img/profile/Carl.jpg" class="profile-img pull-left">
                                 <div class="message-block">
                                     <div>
-                                        <span class="username">Tui2Tone</span> <span class="message-datetime">1 day ago</span>
+                                        <span class="username">Carl McDonald</span> <span class="message-datetime">1 day ago</span>
                                     </div>
-                                    <div class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.</div>
+                                    <div class="message">How many projects do we have wrapping up in the next few weeks?</div>
                                 </div>
                             </li>
                         </a>

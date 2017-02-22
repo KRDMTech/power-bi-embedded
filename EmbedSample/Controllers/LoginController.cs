@@ -44,6 +44,28 @@ namespace paas_demo.Controllers
         public ActionResult Logout()
         {
             Session["AccessToken"] = null;
+            Session["Role"] = null;
+            Session["User"] = null;
+            Session["Email"] = null;
+
+            return RedirectToAction("Index", "Login");
+        }
+
+        public ActionResult AppLogin(string UserName)
+        {
+            switch (UserName)
+            {
+                case "Carl":
+                    Session["Role"] = "Carl";
+                    Session["User"] = "Carl McDonald";
+                    Session["Email"] = "carl.mcdonald@imail.org";
+                    break;
+                case "Dale":
+                    Session["Role"] = "Dale";
+                    Session["User"] = "Dale Forbes";
+                    Session["Email"] = "dale.forbes@imail.org";
+                    break;
+            }
 
             return RedirectToAction("Index", "Report");
         }

@@ -53,7 +53,10 @@ namespace paas_demo.Controllers
             {
                 var reportsResponse = await client.Reports.GetReportsAsync(this.workspaceCollection, this.workspaceId);
                 var report = reportsResponse.Value.FirstOrDefault(r => r.Id == reportId);
-                var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id);
+                string[] roles = new string[1];
+                roles[0] = Session["Role"].ToString();
+                var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id, Session["User"].ToString(), roles);
+                //var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id, "Dale Forbes", roles);
 
                 var viewModel = new ReportViewModel
                 {

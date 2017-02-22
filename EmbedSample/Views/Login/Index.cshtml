@@ -7,9 +7,21 @@
 }
 <div class="side-body padding-top">
     <div class="col-md-12">
+        @using (Html.BeginForm("AppLogin", "Login", new { userName = "Carl" }, FormMethod.Post, null))
+        {
+            <input type="submit" value="Carl McDonald" class="btn btn-success" />
+        }  
+    </div>
+    <div class="col-md-12">
+        @using (Html.BeginForm("AppLogin", "Login", new { userName = "Dale" }, FormMethod.Post, null))
+        {
+            <input type="submit" value="Dale Forbes" class="btn btn-info" />
+        }
+    </div>
+    <div class="col-md-12">
         @using (Html.BeginForm("GetAuthorizationCode", "Login"))
         {
-            <input type="submit" value="Login" class="btn btn-danger" />
-        }  
+            <input type="submit" value="Dashboard Login" class="btn btn-danger" />
+        }
     </div>
 </div>
